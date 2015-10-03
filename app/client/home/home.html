@@ -1,17 +1,78 @@
 <template name="home">
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-		<div class="row">
+		<!-- <div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
 				<li class="active">Dashboard</li>
 			</ol>
-		</div><!--/.row-->
+		</div>-->
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Dashboard</h1>
+				<h1 class="page-header">PRook - Hi, {{ currentUser.username }}.</h1>
 			</div>
 		</div><!--/.row-->
-	</div>	<!--/.main-->
 
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<div class="panel panel-blue">
+					<div class="large panel-heading dark-overlay">Clean &amp; Jerk</div>
+					<div class="panel-body">
+						<div class="large">256 kg</div>
+						<div class="text-muted">03/05/15</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<div class="panel panel-orange">
+					<div class="large panel-heading dark-overlay">Snatch</div>
+					<div class="panel-body">
+						<div class="large">75 kg</div>
+						<div class="text-muted">31/01/15</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-4">
+				<div class="panel panel-red panel-widget ">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<div class="large">Back Squat</div>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">115 kg</div>
+							<div class="text-muted">17/05/15</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<div class="large">Deadlift</div>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">200 kg</div>
+							<div class="text-muted">06/06/15</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<div class="panel panel-orange panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<div class="large">Bench Press</div>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">70 kg</div>
+							<div class="text-muted">06/06/15</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	<!--/.main-->
 </template>

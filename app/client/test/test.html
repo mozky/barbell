@@ -1,0 +1,26 @@
+<template name="test">
+  <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+      <div class="col-xs-12">
+        <header>
+          <h1>Test Zone</h1>
+        </header>
+        <form class="new-pr">
+          <select name="exercise">
+            <option value="clean">Clean</option>
+            <option value="snatch">Snatch</option>
+            <option value="back squat">Back Squat</option>
+            <option value="bench press">Bench Press</option>
+          </select>
+          <input type="number" name="weight" placeholder="100kg" />
+          <input type="submit">
+        </form>
+        <ul>
+          {{#each records}}
+            <li>{{exercise}}: {{best}}kg</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div><!--/.row-->
+  </div>	<!--/.main-->
+</template>

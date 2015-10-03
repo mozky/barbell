@@ -1,0 +1,40 @@
+<template name="sidebar">
+  <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <form role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </form>
+    <ul class="nav menu">
+      <li class="active"><a href="/"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+      <li><a href="widgets.html"><span class="glyphicon glyphicon-th"></span> Widgets</a></li>
+      <li><a href="charts.html"><span class="glyphicon glyphicon-stats"></span> Charts</a></li>
+      <li><a href="tables.html"><span class="glyphicon glyphicon-list-alt"></span> Tables</a></li>
+      <li><a href="map.html"><span class="glyphicon glyphicon-map-marker"></span> Map</a></li>
+      <li class="parent ">
+        <a href="#">
+          <span class="glyphicon glyphicon-list"></span> Exercises <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+        </a>
+        <ul class="children collapse" id="sub-item-1">
+          <li>
+            <a class="" href="#">
+              <span class="glyphicon glyphicon-share-alt"></span> Clean &amp; Jerk
+            </a>
+          </li>
+          <li>
+            <a class="" href="#">
+              <span class="glyphicon glyphicon-share-alt"></span> Snatch
+            </a>
+          </li>
+          <li>
+            <a class="" href="#">
+              <span class="glyphicon glyphicon-share-alt"></span> Back Squat
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li role="presentation" class="divider"></li>
+      <li><a href="settings.html"><span class="glyphicon glyphicon-user"></span> Settings</a></li>
+    </ul>
+  </div>
+</template>

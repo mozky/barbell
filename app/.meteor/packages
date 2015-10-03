@@ -25,4 +25,5 @@ ejson
 spacebars
 check
 ian:accounts-ui-bootstrap-3
-less
+dburles:google-maps
+mdg:geolocation
