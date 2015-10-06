@@ -7,17 +7,32 @@
         </header>
         <form class="new-pr">
           <select name="exercise">
+            <option selected="selected" disabled="disabled">Exercise...</option>
             <option value="clean">Clean</option>
             <option value="snatch">Snatch</option>
             <option value="back squat">Back Squat</option>
             <option value="bench press">Bench Press</option>
           </select>
           <input type="number" name="weight" placeholder="100kg" />
+          <input type="date" name="date">
           <input type="submit">
         </form>
         <ul>
           {{#each records}}
-            <li>{{exercise}}: {{best}}kg</li>
+            <li class="{{#if checked}}checked{{/if}}">
+              <button class="delete">&times;</button>
+
+              <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+              <span class="text">Clean: {{clean.weight}}kg</span>
+            </li>
+            <li class="{{#if checked}}checked{{/if}}">
+              <button class="delete">&times;</button>
+
+              <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+              <span class="text">Snatch: {{snatch.weight}}kg</span>
+            </li>
           {{/each}}
         </ul>
       </div>
