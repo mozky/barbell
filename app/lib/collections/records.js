@@ -2,43 +2,54 @@ Records = new Mongo.Collection("records");
 History = new Mongo.Collection("history");
 
 Meteor.methods({
-  addTask: function (exercise, weight, prDate) {
-    // Make sure the user is logged in before inserting a task
+  addRecord: function (exercise, weight, prDate) {
+    // Make sure the user is logged in before inserting a record
     if (! Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
 
     record = Records.findOne({"username" : Meteor.user().username});
 
-    if (weight <= record[exercise].weight) {
-      console.log("No PR, just adding to history.");
-      History.upsert(
-        {"username" : Meteor.user().username, "exercise" : exercise},
-        {$push : {history: {weight : weight, date : new Date(prDate)}}}
-      );
-    } else {
-      console.log("New PR, modifying and adding to history.");
-
-      var query = {};
-      query[exercise] = {"weight" : weight, "bestDate" : new Date(prDate)};
-
-      Records.update(
-        {"username" : Meteor.user().username},
-        {
-          $set: query
-        }
-      );
-
+    function addToHistory (exercise, weight, prDate) {
       History.upsert(
         {"username" : Meteor.user().username, "exercise" : exercise},
         {$push : {history: {weight : weight, date : new Date(prDate)}}}
       );
     }
 
+    function newPR (exercise, weight, prDate) {
+      var query = {};
+      query[exercise] = {"weight" : weight, "bestDate" : new Date(prDate)};
+
+      Records.upsert(
+        {"username" : Meteor.user().username},
+        {
+          $set: query
+        }
+      );
+    }
+
+    if(typeof record[exercise] == 'undefined'){
+      console.log("First time adding a record for the exercise.");
+      newPR (exercise, weight, prDate);
+      addToHistory(exercise, weight, prDate);
+
+    } else {
+      if (weight <= record[exercise].weight) {
+        console.log("No PR, just adding to history.");
+        addToHistory(exercise, weight, prDate);
+      } else {
+        console.log("New PR, modifying and adding to history.");
+        newPR (exercise, weight, prDate);
+        addToHistory (exercise, weight, prDate);
+      }
+    }
   },
+
   deleteTask: function (prId) {
     Records.remove(prId);
   },
+
   setChecked: function (prId, setChecked) {
     Records.update(prId, { $set: { checked: setChecked} });
   }
@@ -47,14 +58,14 @@ Meteor.methods({
 if (Meteor.isClient) {
   // This code only runs on the client
 
-  Template.test.helpers({
+  Template.home.helpers({
     records: function () {
       //TODO return only record of current user.
       return Records.find({});
     }
   });
 
-  Template.test.events({
+  Template.home.events({
       "submit .new-pr": function (event) {
         // Prevent default browser form submit
         event.preventDefault();
@@ -68,8 +79,8 @@ if (Meteor.isClient) {
         var prDate = moment(event.target.date.value, "YYYY-MM-DD");
         prDate = prDate.toISOString();
 
-        // Insert a task into the collection
-        Meteor.call("addTask", exercise, weight, prDate);
+        // Insert a record into the collection
+        Meteor.call("addRecord", exercise, weight, prDate);
 
         // Clear form
         // event.target.exercise.value = "Exercise...";

@@ -6,7 +6,6 @@
 				<li class="active">Dashboard</li>
 			</ol>
 		</div>-->
-
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">PRook - Hi, {{ currentUser.username }}.</h1>
@@ -14,12 +13,31 @@
 		</div><!--/.row-->
 
 		<div class="row">
+			<div class="col-lg-12">
+				<form class="new-pr">
+          <select name="exercise">
+            <option selected="selected" disabled="disabled">Exercise...</option>
+            <option value="clean">Clean</option>
+            <option value="snatch">Snatch</option>
+            <option value="backSquat">Back Squat</option>
+            <option value="benchPress">Bench Press</option>
+						<option value="deadLift">Dead Lift</option>
+          </select>
+          <input type="number" name="weight" placeholder="100kg" />
+          <input type="date" name="date">
+          <input type="submit">
+        </form>
+			</div>
+		</div>
+
+		{{#each records}}
+		<div class="row">
 			<div class="col-xs-12 col-md-6">
 				<div class="panel panel-blue">
 					<div class="large panel-heading dark-overlay">Clean &amp; Jerk</div>
 					<div class="panel-body">
-						<div class="large">256 kg</div>
-						<div class="text-muted">03/05/15</div>
+						<div class="large">{{clean.weight}} kg</div>
+						<div class="text-muted">{{clean.bestDate}}</div>
 					</div>
 				</div>
 			</div>
@@ -27,8 +45,8 @@
 				<div class="panel panel-orange">
 					<div class="large panel-heading dark-overlay">Snatch</div>
 					<div class="panel-body">
-						<div class="large">75 kg</div>
-						<div class="text-muted">31/01/15</div>
+						<div class="large">{{snatch.weight}} kg</div>
+						<div class="text-muted">{{snatch.bestDate}}</div>
 					</div>
 				</div>
 			</div>
@@ -41,8 +59,8 @@
 							<div class="large">Back Squat</div>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">115 kg</div>
-							<div class="text-muted">17/05/15</div>
+							<div class="large">{{backSquat.weight}} kg</div>
+							<div class="text-muted">{{backSquat.bestDate}}</div>
 						</div>
 					</div>
 				</div>
@@ -54,8 +72,8 @@
 							<div class="large">Deadlift</div>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">200 kg</div>
-							<div class="text-muted">06/06/15</div>
+							<div class="large">{{deadLift.weight}} kg</div>
+							<div class="text-muted">{{deadLift.bestDate}}</div>
 						</div>
 					</div>
 				</div>
@@ -67,12 +85,13 @@
 							<div class="large">Bench Press</div>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">70 kg</div>
-							<div class="text-muted">06/06/15</div>
+							<div class="large">{{benchPress.weight}} kg</div>
+							<div class="text-muted">{{benchPress.bestDate}}</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		{{/each}}
 	</div>	<!--/.main-->
 </template>
