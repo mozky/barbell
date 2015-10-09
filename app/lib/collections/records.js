@@ -29,7 +29,7 @@ Meteor.methods({
       );
     }
 
-    if(typeof record[exercise] == 'undefined'){
+    if(typeof record == 'undefined' || typeof record[exercise] == 'undefined'){
       console.log("First time adding a record for the exercise.");
       newPR (exercise, weight, prDate);
       addToHistory(exercise, weight, prDate);
