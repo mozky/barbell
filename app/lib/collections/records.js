@@ -8,11 +8,14 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
 
-    record = Records.findOne({"username" : Meteor.user().username});
+    record = Records.findOne({
+      "_id" : Meteor.Meteor.userId(),
+      "username" : Meteor.user().username
+    });
 
     function addToHistory (exercise, weight, prDate) {
       History.upsert(
-        {"username" : Meteor.user().username, "exercise" : exercise},
+        {"_id": Meteor.userId(), "username" : Meteor.user().username, "exercise" : exercise},
         {$push : {history: {weight : weight, date : new Date(prDate)}}}
       );
     }
@@ -22,7 +25,7 @@ Meteor.methods({
       query[exercise] = {"weight" : weight, "bestDate" : new Date(prDate)};
 
       Records.upsert(
-        {"username" : Meteor.user().username},
+        {"_id" : Meteor.userId(), "username" : Meteor.user().username},
         {
           $set: query
         }
@@ -55,8 +58,19 @@ Meteor.methods({
   }
 });
 
+if (Meteor.isServer) {
+  // This code only runs on the server
+  // Only publish records that belong to the current user
+  Meteor.publish("records", function () {
+    return Records.find({
+      "_id": this.userId
+    });
+  });
+}
+
 if (Meteor.isClient) {
   // This code only runs on the client
+  Meteor.subscribe("records");
 
   Template.home.helpers({
     records: function () {
