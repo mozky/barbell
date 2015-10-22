@@ -7,6 +7,9 @@
             if the user document has no profile property}}
         {{#with profile}}
             Profile name : {{name}}
+        {{/with}}<br>
+        {{#with services}}
+          Password: {{password.bcrypt}}
         {{/with}}
     </div>
   </div>
