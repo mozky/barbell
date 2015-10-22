@@ -66,13 +66,13 @@ if (Meteor.isClient) {
   // Subscribe to records collection
   Meteor.subscribe("records");
 
-  Template.home.helpers({
+  Template.record.helpers({
     records: function () {
       return Records.find({});
     }
   });
 
-  Template.home.events({
+  Template.record.events({
       "submit .new-pr": function (event, template) {
         // Prevent default browser form submit
         event.preventDefault();
