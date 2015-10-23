@@ -3,10 +3,17 @@ History = new Mongo.Collection("history");
 
 if (Meteor.isServer) {
   // Only publish records that belong to the current user
-  Meteor.publish("records", function () {
-    return Records.find({
-      "userId": this.userId
-    });
+  Meteor.publish("records", function (username) {
+
+    // if the user we want to display the profile is the currently logged in user...
+    if (this.username == username) {
+        console.log("Records personales");
+        return Records.find({username : username});
+    }
+    else {
+        console.log("Buscando records de: " + username);
+        return Records.find({username : username});
+    }
   });
 
   //Start of functions used.
@@ -63,9 +70,7 @@ if (Meteor.isServer) {
 }
 
 if (Meteor.isClient) {
-  // Subscribe to records collection
-  Meteor.subscribe("records");
-
+  
   Template.record.helpers({
     records: function () {
       return Records.find({});
