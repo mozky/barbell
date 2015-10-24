@@ -1,7 +1,8 @@
 <template name="appLayout">
   <div class="app">
     {{> navbar}}
-    {{> sidebar}}
-    {{> yield}}
+    <div class="container">
+      {{> yield}}
+    </div>
   </div>
 </template>

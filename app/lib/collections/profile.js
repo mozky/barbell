@@ -28,3 +28,11 @@ if (Meteor.isServer) {
       }
   });
 }
+
+if (Meteor.isClient) {
+  Template._loginButtonsLoggedInDropdown.events({
+    'click #profile': function(event) {
+        Router.go('/user/'+ Meteor.user().username);
+    }
+  });
+}
