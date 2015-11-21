@@ -19,10 +19,16 @@ Router.route('/user/:username', {
       Meteor.subscribe('records', this.params.username)
     ];
   },
-  data:function(){
-    //Meteor.subscribe("profiles",this.params.username);
+  data: function(){
     var username = this.params.username;
     return Meteor.users.findOne({username:username}, { fields: {services:false}});
+  }
+});
+
+Router.route('/gym/:name', {
+  name: 'gymPage',
+  waitOn: function() {
+    return Meteor.subscribe('gyms', this.params.name);
   }
 });
 

@@ -70,15 +70,16 @@ if (Meteor.isServer) {
 }
 
 if (Meteor.isClient) {
-  
+
   Template.record.helpers({
     records: function () {
       return Records.find({});
     }
   });
 
+
   Template.record.events({
-      "submit .new-pr": function (event, template) {
+      "submit #newRecordForm": function (event, template) {
         // Prevent default browser form submit
         event.preventDefault();
 
@@ -98,4 +99,16 @@ if (Meteor.isClient) {
         template.find("form").reset();
       }
     });
+
+  Template.record.onRendered(function() {
+    this.$('.datetimepicker').datetimepicker({
+      inline: true,
+      endDate: "today",
+      todayHighlight: true
+    });
+  });
+
+  Template.registerHelper('formatDate', function(date) {
+    return moment(date).format('ll');
+  });
 }

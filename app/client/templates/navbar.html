@@ -10,7 +10,7 @@
               <span class="icon-bar"></span>
             </button>
           </div>
-          <a class="navbar-brand" href="/">PRs Board Alpha</a>
+          <a class="navbar-brand" href="/"><b>Barbell</b> <sub>APP</sub></a>
           <!-- Toggled content -->
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left">
@@ -29,6 +29,11 @@
               <li><a href="#">Gym Map</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              <li>
+                <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#newRecordModal">
+                  <span class="glyphicon glyphicon-plus"></span>
+        			  </button>
+              </li>
               {{> loginButtons}}
             </ul>
           </div><!--/.nav-collapse -->
@@ -39,5 +44,8 @@
 
 <!-- loginButtons extra actions -->
 <template name="_loginButtonsAdditionalLoggedInDropdownActions">
-    <button class="btn btn-default btn-block" id="profile">My profile</button>
+  <button class="btn btn-default btn-block" id="profile">My profile</button>
+  <button class="btn btn-default btn-block" id="gym">My box/gym</button>
+  <button class="btn btn-default btn-block" id="settings">Settings</button>
+  <li class="divider"></li>
 </template>
