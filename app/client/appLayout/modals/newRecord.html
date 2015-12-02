@@ -1,0 +1,45 @@
+<template name="newRecord">
+  <div class="modal fade" id="newRecordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Add a new record</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&hellip;</p>
+					<form id="newRecordForm">
+						<label for="exercise">Select a exercise: </label>
+						<div class="form-group form-group-lg">
+			        <select name="exercise" class="form-control">
+			          <option selected="selected" disabled="disabled">Exercise&hellip;</option>
+			          <option value="clean">Clean</option>
+			          <option value="snatch">Snatch</option>
+			          <option value="backSquat">Back Squat</option>
+			          <option value="benchPress">Bench Press</option>
+								<option value="deadLift">Dead Lift</option>
+			        </select>
+						</div>
+						<label for="weight">Total weight: </label>
+						<div class="input-group input-group-lg">
+				      <input type="number" name="weight" class="form-control" placeholder="100">
+				      <span class="input-group-addon">kg</span>
+						</div>
+						<br>
+						<label for="date">Date of the record: </label>
+						<div class="input-group input-group-lg datetimepicker">
+						    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+						    <input class="set-due-date form-control" type="date" name="date"/>
+						</div>
+		      </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+						<span class="glyphicon glyphicon-remove"></span> Cancel
+					</button>
+	        <button type="submit" form="newRecordForm" class="btn btn-primary">Add record</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</template>
