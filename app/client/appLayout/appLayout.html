@@ -1,0 +1,11 @@
+<template name="appLayout">
+  <div class="app">
+    {{> navbar}}
+    <div class="container">
+      {{> yield}}
+    </div>
+    <!-- Modals -->
+    {{> editProfile}}
+    {{> newRecord}}
+  </div>
+</template>

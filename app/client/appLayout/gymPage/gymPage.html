@@ -1,0 +1,19 @@
+<template name="gymPage">
+	<div class="col-lg-12">
+		<div class="row">
+			{{#each gyms}}
+				<div class="col-lg-12">
+					<h1 class="page-header">{{name}}</h1>
+          Name: {{name}}<br>
+					Country: {{country}}<br>
+					Athletes:
+					<ul>
+					{{#each athletes}}
+						<li>{{name}}</li>
+					{{/each}}
+					</ul>
+				</div>
+			{{/each}}
+		</div>
+	</div>	<!--/.main-->
+</template>

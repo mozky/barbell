@@ -1,0 +1,74 @@
+<!--
+  Modal for editing profile settings
+-->
+<template name="editProfile">
+  <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Edit Profile</h4>
+        </div>
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua&hellip;</p>
+
+          <!-- TODO -->
+          <!-- Maybe use a do we got it right? To confirm data optained from a
+           service ej.Instagram and save it to the profile part of the document -->
+
+          <form role="form" id="editProfileForm">
+            <div class="input-group">
+              <label for="username">Username: DANGER </label>
+              <input type="text" name="username" class="form-control" placeholder="login service recomendation">
+            </div>
+            <div class="input-group">
+              <label for="name">Name: </label>
+              <input type="text" name="name" class="form-control" placeholder="login service recomendation">
+            </div>
+            <div class="form-group">
+              <label for="sex">Sex: </label>
+              <select name="sex" class="form-control">
+                <option selected="selected" disabled="disabled">&hellip;</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="country">Country: </label>
+              <select name="country" class="form-control">
+                <option selected="selected" disabled="disabled">Country&hellip;</option>
+                <option value="mexico">Mexico</option>
+                <option value="usa">United States</option>
+                <option value="canada">Canada</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="gym">Gym: </label>
+              <input type="text" name="gym" class="form-control" placeholder="Invictus">
+            </div>
+            <div class="input-group">
+              <label for="age">Age: </label>
+              <input type="number" name="age" class="form-control" placeholder="20">
+              <div class="input-group-addon">years</div>
+            </div>
+            <div class="input-group">
+              <label for="weight">Weight: </label>
+              <input type="number" name="weight" class="form-control" placeholder="80">
+              <div class="input-group-addon">kgs</div>
+            </div>
+            <div class="input-group">
+              <label for="height">Height: </label>
+              <input type="number" name="height" class="form-control" placeholder="180">
+              <div class="input-group-addon">cms</div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" form="editProfileForm" class="btn btn-primary">Save Profile</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</template>
