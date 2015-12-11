@@ -1,5 +1,6 @@
 <template name="profile">
-  <div class="page-header">
+  <div class="panel panel-dark">
+    <div class="panel-body">
       {{#with profile}}
         <img class="center-block" src="http://placehold.it/300">
         <h1 class="text-center">{{name}}</h1>
@@ -7,5 +8,6 @@
         <h3>Trains at {{gym}}</h3>
         <h3>W: {{weight}} kg H: {{height}} cm</h3>
       {{/with}}<br>
+    </div>
   </div>
 </template>

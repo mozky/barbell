@@ -33,4 +33,4 @@ Router.route('/gym/:name', {
 });
 
 //Add dataNotFound to gyms and all other necesary pages.
-Router.onBeforeAction('dataNotFound', {only: ['userPage','gymPage']});
+Router.onBeforeAction('dataNotFound');

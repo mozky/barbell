@@ -30,11 +30,6 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#" data-toggle="modal" data-target="#registerModal">
-              Register
-            </a>
-          </li>
-          <li>
             <a href="#" data-toggle="modal" data-target="#editProfileModal">
               <span class="glyphicon glyphicon-user"></span>
             </a>
@@ -45,6 +40,24 @@
             </a>
           </li>
           {{> loginButtons}}
+          {{#if currentUser}}
+            <li>
+              <button type="button" class="btn btn-default navbar-btn logout">
+                Logout
+              </button>
+            </li>
+          {{else}}
+            <li>
+    					<div class="btn-group" role="group">
+                <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#registerModal">
+                  Register
+                </button>
+                <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loginModal">
+                  Sign in
+                </button>
+      				</div>
+            </li>
+          {{/if}}
         </ul>
       </div><!--/.nav-collapse -->
     </div>

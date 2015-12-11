@@ -30,7 +30,6 @@ if (Meteor.isClient) {
   });
 
   Template.register.onRendered(function () {
-    console.log("Rendered");
     /*
         Form validation
     */
