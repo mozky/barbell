@@ -1,39 +1,44 @@
 <template name="home">
-	<div class="col-lg-3">
-		{{> profile}}
-	</div>
-	<div class="col-lg-6">
-		<div class="row">
-			<div class="jumbotron">
-				<h1>Barbell <small>APP</small></h1>
-				<p>Hi, {{ currentUser.profile.name }}, welcome to Barbell. Umami fingerstache forage, aesthetic hammock flexitarian keytar. Cliche photo booth flannel, slow-carb gastropub lo-fi polaroid direct trade neutra fanny pack quinoa.</p>
-				<p class="text-center">Where to start?</p>
-				<div class="btn-group btn-group-justified">
-					<div class="btn-group" role="group">
-						<button type="button" class="myProfile btn btn-primary btn-lg">
-							Your dashboard
-						</button>
-					</div>
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editProfileModal">
-							Edit your profile
-						</button>
-					</div>
-				</div>
-				<br><br>
-				<div class="btn-group btn-group-justified">
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newRecordModal">
-							Track a record!
-						</button>
-					</div>
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#joinBox">
-							Join a Box/Gym
-						</button>
-					</div>
-				</div>
-			</div>
-		</div><!--/.row-->
-	</div><!--/.main-->
+  <div class="col-lg-3">
+    {{> profile}}
+  </div>
+  <div class="col-lg-6">
+    <div class="row">
+      <div class="jumbotron">
+        <h1>Barbell
+          <small>APP</small>
+        </h1>
+        <p>Hi, {{ currentUser.profile.name }}, welcome to Barbell. Umami fingerstache forage, aesthetic hammock flexitarian keytar. Cliche photo booth flannel, slow-carb gastropub lo-fi polaroid direct trade neutra fanny pack quinoa.</p>
+        <p class="text-center">Where to start?</p>
+        <div class="btn-group btn-group-justified">
+          <div class="btn-group" role="group">
+            <button type="button" class="myProfile btn btn-primary btn-lg">
+              Your dashboard
+            </button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editProfileModal">
+              Edit your profile
+            </button>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="btn-group btn-group-justified">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newRecordModal">
+              Track a record!
+            </button>
+          </div>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#joinBox">
+              Join a Box/Gym
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.row-->
+  </div>
+  <!--/.main-->
 </template>

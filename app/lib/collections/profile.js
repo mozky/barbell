@@ -4,53 +4,75 @@
 
 
 if (Meteor.isServer) {
-  Meteor.publish("profiles", function(username){
-      // Try to find the user by username
-      console.log("Buscando pagina de: " + username);
-      var user = Meteor.users.findOne({
-          username:username
+  Meteor.publish("profiles", function(username) {
+    // Try to find the user by username
+    console.log("Buscando pagina de: " + username);
+    var user = Meteor.users.findOne({
+      username: username
+    });
+    // if we can't find it, mark the subscription as ready and quit
+    if (!user) {
+      console.log("No encontramos user");
+      this.ready();
+      return;
+    }
+    // if the user we want to display the profile is the currently logged in user...
+    if (this.userId == user._id) {
+      console.log("Se ve a si mismo");
+      return Meteor.users.find({
+        username: this.userId
+      }, {
+        fields: {
+          services: false
+        }
       });
-      // if we can't find it, mark the subscription as ready and quit
-      if(!user){
-          console.log("No encontramos user");
-          this.ready();
-          return;
-      }
-      // if the user we want to display the profile is the currently logged in user...
-      if (this.userId == user._id) {
-          console.log("Se ve a si mismo");
-          return Meteor.users.find({username : this.userId}, { fields: {services:false}});
-      }
-      else {
-          console.log("Viendo otro user, " + user.username);
-          //Filtra datos sensibles
-          return Meteor.users.find({username : user.username}, { fields: {username:true, profile:true}});
-      }
+    } else {
+      console.log("Viendo otro user, " + user.username);
+      //Filtra datos sensibles
+      return Meteor.users.find({
+        username: user.username
+      }, {
+        fields: {
+          username: true,
+          profile: true
+        }
+      });
+    }
   });
 
   Meteor.methods({
+    //Method for validating data on user creation
+    validateData: function(username, password, passwordConf) {
+      if (password !== passwordConf){
+        console.log("Passwords do not match");
+        throw new Meteor.Error(403, "The passwords don't match")
+        }
+        // Validate username, sending a specific error message on failure.
+      if (username.length <= 3)
+        throw new Meteor.Error(403, "Username must have at least 3 characters");
+    },
+
     //Enviar objeto en vez de cada valor por separado
-    editProfile: function (username, name, sex, country, gym, age, weight, height) {
+    editProfile: function(username, name, sex, country, gym, age, weight, height) {
       // Make sure the user is logged in before inserting a record
-      if (! Meteor.userId()) {
+      if (!Meteor.userId()) {
         throw new Meteor.Error("not-authorized");
       }
 
-      Meteor.users.update(
-        {"_id": Meteor.userId()},
-        {
-          $set : {
-            "username" : username,
-            "profile.name" : name,
-            "profile.age" : age,
-            "profile.country" : country,
-            "profile.sex" : sex,
-            "profile.weight" : weight,
-            "profile.height" : height,
-            "profile.gym" : gym
-          }
+      Meteor.users.update({
+        "_id": Meteor.userId()
+      }, {
+        $set: {
+          "username": username,
+          "profile.name": name,
+          "profile.age": age,
+          "profile.country": country,
+          "profile.sex": sex,
+          "profile.weight": weight,
+          "profile.height": height,
+          "profile.gym": gym
         }
-      );
+      });
 
       console.log("Se edito el profile correctamente.");
 
@@ -62,35 +84,35 @@ if (Meteor.isServer) {
 if (Meteor.isClient) {
   Template._loginButtonsLoggedInDropdown.events({
     'click #profile': function(event) {
-        Router.go('/user/'+ Meteor.user().username);
+      Router.go('/user/' + Meteor.user().username);
     }
   });
 
   Template.profile.events({
-      "submit #editProfileForm": function (event, template) {
-        // Prevent default browser form submit
-        event.preventDefault();
+    "submit #editProfileForm": function(event, template) {
+      // Prevent default browser form submit
+      event.preventDefault();
 
-        // Get values from form
-        var username = event.target.username.value;
-        var sex = event.target.sex.value;
-        var name = event.target.name.value;
-        var country = event.target.country.value;
-        var gym = event.target.gym.value;
-        var age = event.target.age.value;
-        var weight = event.target.weight.value;
-        var height = event.target.height.value;
-        age = Number(age);
-        weight = Number(weight);
-        height = Number(height);
+      // Get values from form
+      var username = event.target.username.value;
+      var sex = event.target.sex.value;
+      var name = event.target.name.value;
+      var country = event.target.country.value;
+      var gym = event.target.gym.value;
+      var age = event.target.age.value;
+      var weight = event.target.weight.value;
+      var height = event.target.height.value;
+      age = Number(age);
+      weight = Number(weight);
+      height = Number(height);
 
-        // Edit user information
-        Meteor.call("editProfile", username, name, sex, country, gym, age, weight, height);
+      // Edit user information
+      Meteor.call("editProfile", username, name, sex, country, gym, age, weight, height);
 
-        // Clear form
-        template.find("form").reset();
-        
-      }
-    });
+      // Clear form
+      template.find("form").reset();
+
+    }
+  });
 
 }

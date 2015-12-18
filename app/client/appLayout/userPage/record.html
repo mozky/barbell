@@ -1,109 +1,119 @@
 <template name="record">
-	{{#each records}}
-	<div class="row">
-		<div class="col-xs-12 col-md-6">
-			<div class="panel panel-dark">
-				<div class="large panel-heading dark-overlay">Clean &amp; Jerk</div>
-				{{#if clean}}
-					<div class="panel-body">
-						<h1 class="text-center">{{clean.weight}}<small> kg</small></h1>
-					</div>
-					<div class="panel-footer">
-						<div class="text-muted text-right">{{formatDate clean.bestDate}}</div>
-					</div>
-				{{else}}
-				<div class="panel-body">
-					<h1 class="text-center">Not yet recorded!</h1>
-				</div>
-				<div class="panel-footer">
-					<div class="text-muted text-right">null</div>
-				</div>
-				{{/if}}
-			</div>
-		</div>
-		<div class="col-xs-12 col-md-6">
-			<div class="panel panel-dark">
-				<div class="large panel-heading dark-overlay">Snatch</div>
-				{{#if snatch}}
-					<div class="panel-body">
-						<h1 class="text-center">{{snatch.weight}}<small> kg</small></h1>
-					</div>
-					<div class="panel-footer">
-						<div class="text-muted text-right">{{formatDate snatch.bestDate}}</div>
-					</div>
-				{{else}}
-				<div class="panel-body">
-					<h1 class="text-center">Not yet recorded!</h1>
-				</div>
-				<div class="panel-footer">
-					<div class="text-muted text-right">null</div>
-				</div>
-				{{/if}}
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-xs-12 col-md-4">
-			<div class="panel panel-dark">
-				<div class="large panel-heading dark-overlay">Back Squat</div>
-				{{#if backSquat}}
-					<div class="panel-body">
-						<h1 class="text-center">{{backSquat.weight}}<small> kg</small></h1>
-					</div>
-					<div class="panel-footer">
-						<div class="text-muted text-right">{{formatDate backSquat.bestDate}}</div>
-					</div>
-				{{else}}
-				<div class="panel-body">
-					<h1 class="text-center">Not yet recorded!</h1>
-				</div>
-				<div class="panel-footer">
-					<div class="text-muted text-right">null</div>
-				</div>
-				{{/if}}
-			</div>
-		</div>
-		<div class="col-xs-12 col-md-4">
-			<div class="panel panel-dark">
-				<div class="large panel-heading dark-overlay">Deadlift</div>
-				{{#if deadLift}}
-					<div class="panel-body">
-						<h1 class="text-center">{{deadLift.weight}}<small> kg</small></h1>
-					</div>
-					<div class="panel-footer">
-						<div class="text-muted text-right">{{formatDate deadLift.bestDate}}</div>
-					</div>
-				{{else}}
-				<div class="panel-body">
-					<h1 class="text-center">Not yet recorded!</h1>
-				</div>
-				<div class="panel-footer">
-					<div class="text-muted text-right">null</div>
-				</div>
-				{{/if}}
-			</div>
-		</div>
-		<div class="col-xs-12 col-md-4">
-			<div class="panel panel-dark">
-				<div class="large panel-heading dark-overlay">Bench Press</div>
-				{{#if benchPress}}
-					<div class="panel-body">
-						<h1 class="text-center">{{benchPress.weight}}<small> kg</small></h1>
-					</div>
-					<div class="panel-footer">
-						<div class="text-muted text-right">{{formatDate benchPress.bestDate}}</div>
-					</div>
-				{{else}}
-				<div class="panel-body">
-					<h1 class="text-center">Not yet recorded!</h1>
-				</div>
-				<div class="panel-footer">
-					<div class="text-muted text-right">null</div>
-				</div>
-				{{/if}}
-			</div>
-		</div>
-	</div>
-	{{/each}}
+  {{#each records}}
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-dark">
+        <div class="large panel-heading dark-overlay">Clean &amp; Jerk</div>
+        {{#if clean}}
+        <div class="panel-body">
+          <h1 class="text-center">{{clean.weight}}
+            <small> kg</small>
+          </h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">{{formatDate clean.bestDate}}</div>
+        </div>
+        {{else}}
+        <div class="panel-body">
+          <h1 class="text-center">Not yet recorded!</h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">null</div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-dark">
+        <div class="large panel-heading dark-overlay">Snatch</div>
+        {{#if snatch}}
+        <div class="panel-body">
+          <h1 class="text-center">{{snatch.weight}}
+            <small> kg</small>
+          </h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">{{formatDate snatch.bestDate}}</div>
+        </div>
+        {{else}}
+        <div class="panel-body">
+          <h1 class="text-center">Not yet recorded!</h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">null</div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <div class="panel panel-dark">
+        <div class="large panel-heading dark-overlay">Back Squat</div>
+        {{#if backSquat}}
+        <div class="panel-body">
+          <h1 class="text-center">{{backSquat.weight}}
+            <small> kg</small>
+          </h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">{{formatDate backSquat.bestDate}}</div>
+        </div>
+        {{else}}
+        <div class="panel-body">
+          <h1 class="text-center">Not yet recorded!</h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">null</div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <div class="panel panel-dark">
+        <div class="large panel-heading dark-overlay">Deadlift</div>
+        {{#if deadLift}}
+        <div class="panel-body">
+          <h1 class="text-center">{{deadLift.weight}}
+            <small> kg</small>
+          </h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">{{formatDate deadLift.bestDate}}</div>
+        </div>
+        {{else}}
+        <div class="panel-body">
+          <h1 class="text-center">Not yet recorded!</h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">null</div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <div class="panel panel-dark">
+        <div class="large panel-heading dark-overlay">Bench Press</div>
+        {{#if benchPress}}
+        <div class="panel-body">
+          <h1 class="text-center">{{benchPress.weight}}
+            <small> kg</small>
+          </h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">{{formatDate benchPress.bestDate}}</div>
+        </div>
+        {{else}}
+        <div class="panel-body">
+          <h1 class="text-center">Not yet recorded!</h1>
+        </div>
+        <div class="panel-footer">
+          <div class="text-muted text-right">null</div>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
 </template>

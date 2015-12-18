@@ -1,17 +1,17 @@
 if (Meteor.isClient) {
   Template.login.events({
-      'submit form': function(event){
-          event.preventDefault();
-          var emailVar = event.target.loginEmail.value;
-          var passwordVar = event.target.loginPassword.value;
-          Meteor.loginWithPassword(emailVar, passwordVar);
-      }
+    'submit form': function(event) {
+      event.preventDefault();
+      var emailVar = event.target.loginEmail.value;
+      var passwordVar = event.target.loginPassword.value;
+      Meteor.loginWithPassword(emailVar, passwordVar);
+    }
   });
 
   Template.navbar.events({
-    'click .logout': function(event){
-        event.preventDefault();
-        Meteor.logout();
+    'click .logout': function(event) {
+      event.preventDefault();
+      Meteor.logout();
     }
   });
 }
