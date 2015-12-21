@@ -56,7 +56,6 @@ if (Meteor.isServer) {
       if (!Meteor.userId()) {
         throw new Meteor.Error("not-authorized");
       }
-
       record = Records.findOne({
         "userId": Meteor.userId(),
         "username": Meteor.user().username
@@ -90,11 +89,10 @@ if (Meteor.isClient) {
   });
 
 
-  Template.record.events({
+  Template.newRecord.events({
     "submit #newRecordForm": function(event, template) {
       // Prevent default browser form submit
       event.preventDefault();
-
       // Get values from form
       var exercise = event.target.exercise.value;
       var weight = event.target.weight.value;

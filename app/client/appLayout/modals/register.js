@@ -8,28 +8,31 @@ if (Meteor.isClient) {
     //Arrange the buttons, cancel on the left and previous/next on the right.
     "submit #registrationForm": function(event) {
       event.preventDefault();
-      var usernameVar = event.target.registerUsername.value;
-      var emailVar = event.target.registerEmail.value;
-      var passwordVar = event.target.registerPassword.value;
-      var passwordConfVar = event.target.registerPasswordConfirmation.value;
-      var nameVar = event.target.registerName.value;
-      var ageVar = event.target.registerAge.value;
-      var sexVar = event.target.registerSex.value;
-      var gymVar = event.target.registerGym.value;
-      var sportVar = event.target.registerSport.value;
+      var user = {
+        username : event.target.registerUsername.value,
+        email : event.target.registerEmail.value,
+        password : event.target.registerPassword.value,
+        passwordConf : event.target.registerPasswordConfirmation.value,
+        name : event.target.registerName.value,
+        age : event.target.registerAge.value,
+        sex : event.target.registerSex.value,
+        gym : event.target.registerGym.value,
+        sport : event.target.registerSport.value
+      };
       //Call validation of data on the server.
-      Meteor.call("validateData", usernameVar, passwordVar, passwordConfVar);
+      Meteor.call("validateData", user);
       //Create user
+      //TODO: Maybe send the user object itself?
       Accounts.createUser({
-        email: emailVar,
-        password: passwordVar,
-        username: usernameVar,
+        email: user.email,
+        password: user.password,
+        username: user.username,
         profile: {
-          name: nameVar,
-          age: ageVar,
-          sex: sexVar,
-          gym: gymVar,
-          sport: sportVar
+          name: user.name,
+          age: user.age,
+          sex: user.sex,
+          gym: user.gym,
+          sport: user.sport
         }
       });
     }
@@ -97,7 +100,6 @@ if (Meteor.isClient) {
 
     // submit
     $('.registrationForm').on('submit', function(e) {
-
       $(this).find('input[type="text"], input[type="password"], textarea').each(function() {
         if ($(this).val() == "") {
           e.preventDefault();
@@ -106,7 +108,19 @@ if (Meteor.isClient) {
           $(this).removeClass('input-error');
         }
       });
+    });
 
+    //Close modal on submit and redirect to main
+    $('#submitForm').on('click', function() {
+      // Add a delay to show successfull registration message and then close the modal.
+      $('#registerModal').on('success', function() {
+        setTimeout(function() {
+          //Show success message
+        }, 1000);
+      }).modal('hide')
+      $('#registerModal').on('hidden.bs.modal', function() {
+        Router.go('/');
+      });
     });
   });
 }

@@ -42,13 +42,13 @@ if (Meteor.isServer) {
 
   Meteor.methods({
     //Method for validating data on user creation
-    validateData: function(username, password, passwordConf) {
-      if (password !== passwordConf){
+    validateData: function(user) {
+      if (user.password !== user.passwordConf){
         console.log("Passwords do not match");
         throw new Meteor.Error(403, "The passwords don't match")
         }
         // Validate username, sending a specific error message on failure.
-      if (username.length <= 3)
+      if (user.username && user.username.length <= 3)
         throw new Meteor.Error(403, "Username must have at least 3 characters");
     },
 
