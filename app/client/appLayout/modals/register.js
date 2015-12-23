@@ -40,32 +40,11 @@ if (Meteor.isClient) {
 
   Template.register.onRendered(function() {
     /*
-        Form validation
-    */
-    $('.registrationForm input[type="text"], .registrationForm textarea').on('focus', function() {
-      $(this).removeClass('input-error');
-    });
-
-    $('.registrationForm').on('submit', function(e) {
-
-      $(this).find('input[type="text"], textarea').each(function() {
-        if ($(this).val() == "") {
-          e.preventDefault();
-          $(this).addClass('input-error');
-        } else {
-          $(this).removeClass('input-error');
-        }
-      });
-
-    });
-
-
-    /*
     		Form
     */
     $('.registrationForm fieldset:first-child').fadeIn('slow');
 
-    $('.registrationForm input[type="text"], .registrationForm input[type="password"], .registrationForm textarea').on('focus', function() {
+    $('.registrationForm input').on('focus', function() {
       $(this).removeClass('input-error');
     });
 
@@ -74,7 +53,7 @@ if (Meteor.isClient) {
       var parent_fieldset = $(this).parents('fieldset');
       var next_step = true;
 
-      parent_fieldset.find('input[type="text"], input[type="password"], textarea').each(function() {
+      parent_fieldset.find('input').each(function() {
         if ($(this).val() == "") {
           $(this).addClass('input-error');
           next_step = false;
@@ -99,8 +78,9 @@ if (Meteor.isClient) {
     });
 
     // submit
+    //TODO: prevent the submit of function if error found on the last step
     $('.registrationForm').on('submit', function(e) {
-      $(this).find('input[type="text"], input[type="password"], textarea').each(function() {
+      $(this).find('input').each(function() {
         if ($(this).val() == "") {
           e.preventDefault();
           $(this).addClass('input-error');

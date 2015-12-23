@@ -29,6 +29,7 @@
           <li><a href="#">Gym Map</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons}} {{#if currentUser}}
           <li>
             <a href="#" data-toggle="modal" data-target="#editProfileModal">
               <span class="glyphicon glyphicon-user"></span>
@@ -39,7 +40,6 @@
               <span class="glyphicon glyphicon-plus"></span>
             </a>
           </li>
-          {{> loginButtons}} {{#if currentUser}}
           <li>
             <button type="button" class="btn btn-default navbar-btn logout">
               Logout
