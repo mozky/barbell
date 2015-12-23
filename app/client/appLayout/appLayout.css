@@ -1,13 +1,52 @@
-/*   Navbar     */
-.navbar-brand-centered {
-    position: absolute;
-    left: 50%;
-    display: block;
-    width: 160px;
-    text-align: center;
-    background-color: transparent;
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fff;
+  background-color: #303030;
+  padding-top: 50px;
 }
-.navbar>.container .navbar-brand-centered,
-.navbar>.container-fluid .navbar-brand-centered {
-    margin-left: -80px;
+#main {
+  padding-top: 30px !important;
+}
+.h1 {
+  margin-top: 0px;
+}
+.jumbotron {
+  background-color: #424242;
+}
+p {
+  opacity: .7;
+}
+a, a:hover, a:focus {
+  text-decoration: none;
+  -o-transition: all .3s;
+  -moz-transition: all .3s;
+  -webkit-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+
+/*   Panels     */
+
+.panel-dark {
+  color: #fff;
+  background-color: #424242;
+}
+
+/*   Navbar     */
+
+.navbar {
+  background-color: #212121;
+  opacity: 1;
+}
+.navbar-brand-centered {
+  opacity: 1;
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: 160px;
+  text-align: center;
+  background-color: transparent;
+}
+.navbar>.container .navbar-brand-centered, .navbar>.container-fluid .navbar-brand-centered {
+  margin-left: -80px;
 }

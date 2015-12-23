@@ -29,19 +29,37 @@
           <li><a href="#">Gym Map</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons}} {{#if currentUser}}
           <li>
-            <a data-toggle="modal" data-target="#editProfileModal">
+            <a href="#" data-toggle="modal" data-target="#editProfileModal">
               <span class="glyphicon glyphicon-user"></span>
             </a>
           </li>
           <li>
-            <a data-toggle="modal" data-target="#newRecordModal">
+            <a href="#" data-toggle="modal" data-target="#newRecordModal">
               <span class="glyphicon glyphicon-plus"></span>
             </a>
           </li>
-          {{> loginButtons}}
+          <li>
+            <button type="button" class="btn btn-default navbar-btn logout">
+              Logout
+            </button>
+          </li>
+          {{else}}
+          <li>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#registerModal">
+                Register
+              </button>
+              <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loginModal">
+                Sign in
+              </button>
+            </div>
+          </li>
+          {{/if}}
         </ul>
-      </div><!--/.nav-collapse -->
+      </div>
+      <!--/.nav-collapse -->
     </div>
   </nav>
 </template>

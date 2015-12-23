@@ -1,11 +1,10 @@
 <template name="appLayout">
   <div class="app">
     {{> navbar}}
-    <div class="container">
+    <div id="main" class="container">
       {{> yield}}
     </div>
-    <!-- Modals -->
-    {{> editProfile}}
-    {{> newRecord}}
   </div>
+  <!-- Modals -->
+  {{> login}} {{> register}} {{> editProfile}} {{> newRecord}}
 </template>

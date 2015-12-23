@@ -1,6 +1,6 @@
 {
-    "InstagramAPI": {
-        "CLIENT_ID": "43aab78e943c4c71937e71078e762328",
-        "CLIENT_SECRET": "9be46da44cfe4f5fb0c28ddf38792631"
-    }
+  "InstagramAPI": {
+    "CLIENT_ID": "43aab78e943c4c71937e71078e762328",
+    "CLIENT_SECRET": "9be46da44cfe4f5fb0c28ddf38792631"
+  }
 }

@@ -3,11 +3,11 @@ Router.configure({
   notFoundTemplate: 'notFound'
 });
 
-Router.route('/', function () {
+Router.route('/', function() {
   this.render('home');
 });
 
-Router.route('/map.html', function () {
+Router.route('/map.html', function() {
   this.render('map');
 });
 
@@ -19,9 +19,15 @@ Router.route('/user/:username', {
       Meteor.subscribe('records', this.params.username)
     ];
   },
-  data: function(){
+  data: function() {
     var username = this.params.username;
-    return Meteor.users.findOne({username:username}, { fields: {services:false}});
+    return Meteor.users.findOne({
+      username: username
+    }, {
+      fields: {
+        services: false
+      }
+    });
   }
 });
 
@@ -33,4 +39,4 @@ Router.route('/gym/:name', {
 });
 
 //Add dataNotFound to gyms and all other necesary pages.
-Router.onBeforeAction('dataNotFound', {only: 'userPage'});
+Router.onBeforeAction('dataNotFound');
