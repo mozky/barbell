@@ -1,7 +1,19 @@
 {
-  "name": "application-name",
-  "version": "1.0.0",
-  "description": "Application description.",
+  "name": "barbell",
+  "version": "0.0.1",
+  "description": "Track your lifts.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozky/barbell.git"
+  },
+  "keywords": ["barbell", "weightlifting", "weights"],
+  "author": "Moz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mozky/barbell/issues"
+  },
+  "homepage": "https://github.com/mozky/barbell#readme",
   "scripts": {
     "start": "meteor --settings settings-development.json",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 5000",
