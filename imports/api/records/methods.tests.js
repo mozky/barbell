@@ -14,9 +14,17 @@ describe('Records methods', function () {
   });
 
   it('inserts a record into the Records collection', function () {
-    insertRecord.call({ title: 'You can\'t arrest me, I\'m the Cake Boss!' });
-    const getRecord = Records.findOne({ title: 'You can\'t arrest me, I\'m the Cake Boss!' });
-    assert.equal(getRecord.title, 'You can\'t arrest me, I\'m the Cake Boss!');
+    insertRecord.call({
+      username: 'Tester',
+      exercise: 'clean',
+      weight: 100,
+      sets: 4,
+      reps: 4,
+      date: new Date(),
+    });
+
+    const getRecord = Records.findOne({ username: 'Tester' });
+    assert.equal(getRecord.exercise, 'clean');
   });
 
   it('updates a record in the Records collection', function () {
@@ -25,17 +33,19 @@ describe('Records methods', function () {
     updateRecord.call({
       _id,
       update: {
-        title: 'You can\'t arrest me, I\'m the Cake Boss!',
+        exercise: 'testExercise',
       },
     });
 
     const getRecord = Records.findOne(_id);
-    assert.equal(getRecord.title, 'You can\'t arrest me, I\'m the Cake Boss!');
+    assert.equal(getRecord.exercise, 'testExercise');
   });
 
   it('removes a record from the Records collection', function () {
     const { _id } = Factory.create('record');
+
     removeRecord.call({ _id });
+
     const getRecord = Records.findOne(_id);
     assert.equal(getRecord, undefined);
   });

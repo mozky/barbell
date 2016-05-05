@@ -9,7 +9,6 @@ export const insertRecord = new ValidatedMethod({
     sets: { type: Number },
     reps: { type: Number },
     date: { type: Date },
-    createdAt: { type: Date },
   }).validator(),
   run(document) {
     Records.insert(document);
@@ -20,7 +19,12 @@ export const updateRecord = new ValidatedMethod({
   name: 'records.update',
   validate: new SimpleSchema({
     _id: { type: String },
-    'update.title': { type: String, optional: true },
+    'update.username': { type: String, optional: true },
+    'update.exercise': { type: String, optional: true },
+    'update.weight': { type: Number, optional: true },
+    'update.sets': { type: Number, optional: true },
+    'update.reps': { type: Number, optional: true },
+    'update.date': { type: Date, optional: true },
   }).validator(),
   run({ _id, update }) {
     Records.update(_id, { $set: update });

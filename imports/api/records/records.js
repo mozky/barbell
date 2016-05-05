@@ -61,8 +61,8 @@ Records.attachSchema(Records.schema);
 Factory.define('record', Records, {
   username: () => faker.internet.userName(),
   exercise: () => faker.lorem.word(),
+  weight: () => faker.random.number(),
   sets: () => faker.random.number(),
   reps: () => faker.random.number(),
   date: () => faker.date.past(),
-  createdAt: () => faker.data.recent(),
 });
