@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row, Col, ListGroupItem, Input, Button } from 'react-bootstrap';
+import { Row, Col, ListGroupItem, FormControl, Button } from 'react-bootstrap';
+import { Bert } from 'meteor/themeteorchef:bert';
 import { updateRecord, removeRecord } from '../../api/records/methods.js';
 
 const handleUpdateRecord = (recordId, event) => {
@@ -37,7 +38,7 @@ export const Record = ({ record }) => (
   <ListGroupItem key={ record._id }>
     <Row>
       <Col xs={ 8 } sm={ 10 }>
-        <Input
+        <FormControl
           type="text"
           standalone
           defaultValue={ record.username }

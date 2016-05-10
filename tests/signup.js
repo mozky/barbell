@@ -16,6 +16,7 @@ describe('Sign Up', function () {
     browser.url('http://localhost:3000/signup')
            .setValue('[name="firstName"]', 'Carl')
            .setValue('[name="lastName"]', 'Winslow')
+           .setValue('[name="username"]', 'CarlsJunior')
            .setValue('[name="emailAddress"]', 'carl.winslow@abc.com')
            .setValue('[name="password"]', 'bigguy1989')
            .submitForm('form');

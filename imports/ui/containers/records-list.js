@@ -2,12 +2,13 @@ import { composeWithTracker } from 'react-komposer';
 import { Records } from '../../api/records/records.js';
 import { RecordsList } from '../components/records-list.js';
 import { Loading } from '../components/loading.js';
+import { Meteor } from 'meteor/meteor';
 
-const composer = (params, onReady) => {
+const composer = (params, onData) => {
   const subscription = Meteor.subscribe('records');
   if (subscription.ready()) {
     const records = Records.find().fetch();
-    onReady(null, { records });
+    onData(null, { records });
   }
 };
 

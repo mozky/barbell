@@ -42,6 +42,15 @@ export class Signup extends React.Component {
             </Col>
           </Row>
           <FormGroup>
+            <ControlLabel>Username</ControlLabel>
+            <FormControl
+              type="text"
+              ref="username"
+              name="username"
+              placeholder="Username"
+            />
+          </FormGroup>
+          <FormGroup>
             <ControlLabel>Email Address</ControlLabel>
             <FormControl
               type="text"

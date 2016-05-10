@@ -8,6 +8,7 @@ import { getInputValue } from './get-input-value';
 let component;
 
 const getUserData = () => ({
+  username: getInputValue(component.refs.username),
   email: getInputValue(component.refs.emailAddress),
   password: getInputValue(component.refs.password),
   profile: {

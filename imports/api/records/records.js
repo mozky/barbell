@@ -1,4 +1,6 @@
 import { Mongo } from 'meteor/mongo';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { Factory } from 'meteor/dburles:factory';
 import faker from 'faker';
 
 export const Records = new Mongo.Collection('Records');

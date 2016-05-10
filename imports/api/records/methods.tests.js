@@ -1,8 +1,10 @@
 /* eslint-env mocha */
 /* eslint-disable func-names, prefer-arrow-callback */
 
+import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
+import { Factory } from 'meteor/dburles:factory';
 import { Records } from './records.js';
 import { insertRecord, updateRecord, removeRecord } from './methods.js';
 
@@ -43,9 +45,7 @@ describe('Records methods', function () {
 
   it('removes a record from the Records collection', function () {
     const { _id } = Factory.create('record');
-
     removeRecord.call({ _id });
-
     const getRecord = Records.findOne(_id);
     assert.equal(getRecord, undefined);
   });

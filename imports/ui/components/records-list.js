@@ -1,6 +1,6 @@
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { ListGroup, Alert } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 // import { Record } from './record.js';
 //
 // export const RecordsList = ({ records }) => (

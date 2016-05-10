@@ -17,6 +17,7 @@ describe('Log In', function () {
       const { Accounts } = require('meteor/accounts-base');
       Accounts.createUser({
         email: 'carl.winslow@abc.com',
+        username: 'CarlsJunior',
         password: 'bigguy1989',
         profile: {
           name: { first: 'Carl', last: 'Winslow' },
