@@ -13,6 +13,7 @@ import { ResetPassword } from '../../ui/pages/reset-password';
 import { Signup } from '../../ui/pages/signup';
 import { Test } from '../../ui/pages/test';
 
+import { Dashboard } from '../../ui2/layouts/dashboard';
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -26,6 +27,7 @@ const requireAuth = (nextState, replace) => {
 Meteor.startup(() => {
   render(
     <Router history={ browserHistory }>
+      <Route path="/dashboard" component={ Dashboard }></Route>
       <Route path="/" component={ App }>
         <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
         <Route name="test" path="/test" component= { Test } />
