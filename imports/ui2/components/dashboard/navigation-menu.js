@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
-export class NavigationMenu extends React.Component {
+export default class NavigationMenu extends React.Component {
 
   render() {
     return (
@@ -11,10 +11,10 @@ export class NavigationMenu extends React.Component {
               {/* Sidebar user panel */}
               <div className="user-panel">
                   <div className="pull-left image">
-                      <img src="https://scontent-atl3-1.cdninstagram.com/t51.2885-19/s150x150/12749826_641204129351350_1584802593_a.jpg" className="img-circle" alt="User Image" />
+                      <img src="/img/user2-160x160.jpg" className="img-circle" alt="User Image" />
                   </div>
                   <div className="pull-left info">
-                      <p>Alexander Pierce</p>
+                      <p>{ this.props.name }</p>
                       <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
                   </div>
               </div>
@@ -178,3 +178,7 @@ export class NavigationMenu extends React.Component {
     );
   }
 }
+
+NavigationMenu.propTypes = {
+  name: React.PropTypes.string.isRequired,
+};

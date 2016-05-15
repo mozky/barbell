@@ -5,7 +5,7 @@ export const Comment = React.createClass({
     return {
       content: 'sample comment',
       displayName: 'John Doe',
-      displayPicture: './128x128.jpg',
+      displayPicture: '/img/user4-128x128.jpg',
       date: '4:20 PM Today',
     };
   },

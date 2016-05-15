@@ -7,7 +7,7 @@ export const Post = React.createClass({
     return {
       displayName: 'JohnDoe',
       description: 'My profile description',
-      displayPicture: './128x128.jpg',
+      displayPicture: '/img/user4-128x128.jpg',
     };
   },
   render() {
@@ -70,7 +70,7 @@ export const Post = React.createClass({
           {/* /.box-footer */}
           <div className="box-footer">
             <form action="#" method="post">
-              <img className="img-responsive img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="alt text" />
+              <img className="img-responsive img-circle img-sm" src="/img/user4-128x128.jpg" alt="alt text" />
               {/* .img-push is used to add margin to elements next to floating images */}
               <div className="img-push">
                 <input type="text" className="form-control input-sm" placeholder="Press enter to post comment" />
