@@ -16,6 +16,7 @@ import { Test } from '../../ui/pages/test';
 import { DashboardContainer } from '../../ui2/containers/dashboard-container';
 import { Index as NewIndex } from '../../ui2/pages/index';
 import { Test as NewTest } from '../../ui2/pages/test';
+import { UserPage } from '../../ui2/pages/user-page';
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -29,19 +30,20 @@ const requireAuth = (nextState, replace) => {
 Meteor.startup(() => {
   render(
     <Router history={ browserHistory }>
-      <Route path="/" component={ DashboardContainer }>
-        <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
+      <Route path="/" component={ DashboardContainer } onEnter={ requireAuth }>
+        <IndexRoute name="index" component={ Index } />
+        <Route name="userPage" path="/user/:username" component={ UserPage } />
         <Route name="newIndex" path="/newIndex" component={ NewIndex } />
         <Route name="newTest" path="/newTest" component={ NewTest } />
         <Route name="test" path="/test" component= { Test } />
-        <Route name="documents" path="/documents" component={ Documents } onEnter={ requireAuth } />
-        <Route name="records" path="/records" component={ Records } onEnter={ requireAuth } />
-        <Route name="login" path="/login" component={ Login } />
-        <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
-        <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
-        <Route name="signup" path="/signup" component={ Signup } />
-        <Route path="*" component={ NotFound } />
+        <Route name="documents" path="/documents" component={ Documents } />
+        <Route name="records" path="/records" component={ Records } />
       </Route>
+      <Route name="login" path="/login" component={ Login } />
+      <Route name="signup" path="/signup" component={ Signup } />
+      <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
+      <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
+      <Route path="*" component={ NotFound } />
     </Router>,
     document.getElementById('react-root')
   );

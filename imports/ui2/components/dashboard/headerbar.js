@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class HeaderBar extends React.Component {
   constructor(props) {
@@ -94,7 +95,9 @@ export default class HeaderBar extends React.Component {
                   {/* Menu Footer */}
                   <li className="user-footer">
                     <div className="pull-left">
-                      <a href="#" className="btn btn-default btn-flat">Profile</a>
+                      <Link to={`/user/${this.props.username}`}
+                        className="btn btn-default btn-flat">Profile</Link>
+                      {/*<a href="#" className="btn btn-default btn-flat">Profile</a>*/}
                     </div>
                     <div className="pull-right">
                       <a href="#" onClick={ this.props.handleLogout }
