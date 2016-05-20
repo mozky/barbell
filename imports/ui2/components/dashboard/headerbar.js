@@ -28,14 +28,14 @@ export default class HeaderBar extends React.Component {
     return (
       <header className="main-header">
         {/* Logo */}
-        <a href="#" className="logo">
+        <Link to="/" className="logo">
           {/* mini logo for sidebar mini 50x50 pixels */}
           <span className="logo-mini">
             <img src="/img/barbell2-50x50.png" alt="logo-mini"></img>
           </span>
           {/* logo for regular state and mobile devices */}
           <span className="logo-lg"><b>Barbell</b>APP</span>
-        </a>
+        </Link>
         {/* Header Navbar: style can be found in header.less */}
         <nav className="navbar navbar-static-top" role="navigation">
           {/* Sidebar toggle button*/}
