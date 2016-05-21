@@ -4,7 +4,6 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { App } from '../../ui/layouts/app';
 import { Documents } from '../../ui/pages/documents';
-import { Records } from '../../ui/pages/records';
 import { Index } from '../../ui/pages/index';
 import { Login } from '../../ui/pages/login';
 import { NotFound } from '../../ui/pages/not-found';
@@ -14,9 +13,11 @@ import { Signup } from '../../ui/pages/signup';
 import { Test } from '../../ui/pages/test';
 
 import { DashboardContainer } from '../../ui2/containers/dashboard-container';
+import { SignedOut } from '../../ui2/layouts/signed-out';
 import { Index as NewIndex } from '../../ui2/pages/index';
 import { Test as NewTest } from '../../ui2/pages/test';
 import { UserPage } from '../../ui2/pages/user-page';
+import { Records } from '../../ui2/pages/records';
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -39,10 +40,12 @@ Meteor.startup(() => {
         <Route name="documents" path="/documents" component={ Documents } />
         <Route name="records" path="/records" component={ Records } />
       </Route>
-      <Route name="login" path="/login" component={ Login } />
-      <Route name="signup" path="/signup" component={ Signup } />
-      <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
-      <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
+      <Route component={ SignedOut } title="titulo">
+        <Route name="login" path="/login" component={ Login } />
+        <Route name="signup" path="/signup" component={ Signup } />
+        <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
+        <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
+      </Route>
       <Route path="*" component={ NotFound } />
     </Router>,
     document.getElementById('react-root')
