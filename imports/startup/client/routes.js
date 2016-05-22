@@ -17,7 +17,8 @@ import { Index as NewIndex } from '../../ui2/pages/index';
 import { Test as NewTest } from '../../ui2/pages/test';
 import { UserPage } from '../../ui2/pages/user-page';
 import { Records } from '../../ui2/pages/records';
-import { Login } from '../../ui2/components/login';
+import { LoginBox } from '../../ui2/components/login';
+import { RegisterBox } from '../../ui2/components/register';
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -40,9 +41,9 @@ Meteor.startup(() => {
         <Route name="documents" path="/documents" component={ Documents } />
         <Route name="records" path="/records" component={ Records } />
       </Route>
-      <Route name="signup" path="/signup" component={ Signup } />
       <Route component={ SignedOut }>
-        <Route name="login" path="/login" msg="Router msg" component={ Login } />
+        <Route name="login" path="/login" component={ LoginBox } />
+        <Route name="register" path="/register" component={ RegisterBox } />
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
         <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
       </Route>

@@ -8,23 +8,22 @@ export const SignedOut = React.createClass({
     route: React.PropTypes.object,
   },
 
+  // componentWillUnmount() {
+  //   const body = document.body;
+  //   body.className = body.className.replace(/.*/, '');
+  // },
+
   render() {
     const body = document.body;
 
-    if (body.className.indexOf('hold-transition login-page') === -1) {
-      body.className = body.className.replace(/./, '');
+    if (body.className.indexOf('hold-transition register-page') === -1) {
+      body.className = body.className.replace(/.*/, '');
       body.className += 'hold-transition login-page';
     }
 
     return (
       <div className="hold-transition login-page">
-        <div className="login-box">
-          <div className="login-logo">
-            <a href="/"><b>Barbell</b>APP</a>
-          </div>
-          <LoginBox msg={ this.props.route.msg } content={ this.props.children }/>
-
-        </div>
+        { this.props.children }
         {/* <HeaderBar name={ name } username={ username } handleLogout={ handleLogout }/>
         <NavigationMenu name={ name }/>
         <div className="content-wrapper">

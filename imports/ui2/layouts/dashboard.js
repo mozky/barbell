@@ -11,6 +11,13 @@ export const Dashboard = React.createClass({
   },
 
   render() {
+    const body = document.body;
+
+    if (body.className.indexOf('skin-black-light sidebar-mini wysihtml5-supported') === -1) {
+      body.className = body.className.replace(/.*/, '');
+      body.className += 'skin-black-light sidebar-mini wysihtml5-supported';
+    }
+
     const handleLogout = this.props.handleLogout;
     const user = this.props.user;
     let name = '';
