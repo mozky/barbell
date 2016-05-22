@@ -114,7 +114,7 @@ export const UserPage = React.createClass({
   },
   render() {
     return (
-      <div>
+      <div className="content-wrapper">
         <section className="content-header">
             <h1>
               {this.props.params.username }'s Timeline

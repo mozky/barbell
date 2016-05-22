@@ -30,9 +30,7 @@ export const Dashboard = React.createClass({
       <div className="wrapper">
         <HeaderBar name={ name } username={ username } handleLogout={ handleLogout }/>
         <NavigationMenu name={ name }/>
-        <div className="content-wrapper">
-          { this.props.children }
-        </div>
+        { this.props.children }
         <Footer />
       </div>
     );

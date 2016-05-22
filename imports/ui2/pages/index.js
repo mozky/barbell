@@ -9,7 +9,9 @@ export class Index extends React.Component {
   }
   render() {
     return (
-      <h1>Hi {this.state.username}</h1>
+      <div className="content-wrapper">
+        <h1>Hi {this.state.username}</h1>
+      </div>
     );
   }
 }

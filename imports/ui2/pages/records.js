@@ -10,7 +10,7 @@ import { Box } from '../components/box';
 export const Records = React.createClass({
   render() {
     return (
-      <div>
+      <div className="content-wrapper">
         <section className="content-header">
             <h1>
               Records<small> Track your shit</small>

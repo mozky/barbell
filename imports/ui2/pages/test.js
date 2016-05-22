@@ -102,7 +102,7 @@ export const Test = React.createClass({
     });
 
     return (
-      <div>
+      <div className="content-wrapper">
         <section className="content-header">
           <h1>
             Dashboard

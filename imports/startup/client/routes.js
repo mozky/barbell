@@ -5,7 +5,6 @@ import { Meteor } from 'meteor/meteor';
 
 import { Documents } from '../../ui/pages/documents';
 import { Index } from '../../ui/pages/index';
-import { NotFound } from '../../ui/pages/not-found';
 import { Test } from '../../ui/pages/test';
 
 import { DashboardContainer } from '../../ui2/containers/dashboard-container';
@@ -18,6 +17,7 @@ import { LoginBox } from '../../ui2/components/account/login';
 import { RegisterBox } from '../../ui2/components/account/register';
 import { RecoverPasswordBox } from '../../ui2/components/account/recover-password';
 import { ResetPasswordBox } from '../../ui2/components/account/reset-password';
+import { NotFound } from '../../ui2/pages/not-found';
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -31,6 +31,12 @@ const requireAuth = (nextState, replace) => {
 Meteor.startup(() => {
   render(
     <Router history={ browserHistory }>
+      <Route component={ SignedOut }>
+        <Route name="login" path="/login" component={ LoginBox } />
+        <Route name="register" path="/register" component={ RegisterBox } />
+        <Route name="recover-password" path="/recover-password" component={ RecoverPasswordBox } />
+        <Route name="reset-password" path="/reset-password/:token" component={ ResetPasswordBox } />
+      </Route>
       <Route path="/" component={ DashboardContainer } onEnter={ requireAuth }>
         <IndexRoute name="index" component={ Index } />
         <Route name="userPage" path="/user/:username" component={ UserPage } />
@@ -39,14 +45,8 @@ Meteor.startup(() => {
         <Route name="test" path="/test" component= { Test } />
         <Route name="documents" path="/documents" component={ Documents } />
         <Route name="records" path="/records" component={ Records } />
+        <Route path="*" component={ NotFound } />
       </Route>
-      <Route component={ SignedOut }>
-        <Route name="login" path="/login" component={ LoginBox } />
-        <Route name="register" path="/register" component={ RegisterBox } />
-        <Route name="recover-password" path="/recover-password" component={ RecoverPasswordBox } />
-        <Route name="reset-password" path="/reset-password/:token" component={ ResetPasswordBox } />
-      </Route>
-      <Route path="*" component={ NotFound } />
     </Router>,
     document.getElementById('react-root')
   );
