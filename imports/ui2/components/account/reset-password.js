@@ -35,9 +35,6 @@ export const ResetPasswordBox = React.createClass({
             </div>
             <button type="submit" className="btn btn-primary btn-block btn-flat">Reset Password &amp; Login</button>
           </form>
-
-          <a href="/login" className="text-center">I already have a membership</a><br></br>
-          <a href="/register" className="text-center">Register a new membership</a>
         </div>
       </div>
     );

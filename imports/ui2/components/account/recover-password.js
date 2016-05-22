@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { handleRecoverPassword } from '../../../modules/recover-password';
 
 export const RecoverPasswordBox = React.createClass({
@@ -26,8 +27,9 @@ export const RecoverPasswordBox = React.createClass({
             <button type="submit" className="btn btn-primary btn-block btn-flat">Send email</button>
           </form>
 
-          <a href="/login" className="text-center">I already have a membership</a><br></br>
-          <a href="/register" className="text-center">Register a new membership</a>
+          <Link to="/login">I already have a membership</Link>
+          <br></br>
+          <Link to="/register">Register a new membership</Link>
         </div>
       </div>
     );

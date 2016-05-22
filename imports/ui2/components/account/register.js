@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { handleSignup } from '../../../modules/signup';
 
 export const RegisterBox = React.createClass({
@@ -14,7 +15,7 @@ export const RegisterBox = React.createClass({
     return (
       <div className="register-box">
         <div className="register-logo">
-          <a href="/"><b>Barbell</b>APP</a>
+          <Link to="/"><b>Barbell</b>APP</Link>
         </div>
         <div className="register-box-body">
           <p className="login-box-msg">Register to barbell</p>
@@ -75,7 +76,7 @@ export const RegisterBox = React.createClass({
             <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i className="fa fa-google-plus"></i> Sign up using Google+</a>
           </div>
 
-          <a href="/login" className="text-center">I already have a membership</a>
+          <Link to="/login">I already have a membership</Link>
         </div>
       </div>
     );

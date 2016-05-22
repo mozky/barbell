@@ -15,7 +15,7 @@ export const LoginBox = React.createClass({
     return (
       <div className="login-box">
         <div className="login-logo">
-          <a href="/"><b>Barbell</b>APP</a>
+          <Link to="/"><b>Barbell</b>APP</Link>
         </div>
         <div className="login-box-body">
           <p className="login-box-msg">Sign up to enter barbell</p>
@@ -48,8 +48,9 @@ export const LoginBox = React.createClass({
             <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i className="fa fa-google-plus"></i> Sign in using Google+</a>
           </div>
 
-          <a href="/recover-password">I forgot my password</a><br></br>
-          <a href="/register" className="text-center">Register a new membership</a>
+          <Link to="/recover-password">I forgot my password</Link>
+          <br></br>
+          <Link to="/register">Register a new membership</Link>
         </div>
       </div>
     );
