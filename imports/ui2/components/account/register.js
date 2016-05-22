@@ -1,5 +1,5 @@
 import React from 'react';
-import { handleSignup } from '../../modules/signup';
+import { handleSignup } from '../../../modules/signup';
 
 export const RegisterBox = React.createClass({
   componentDidMount() {
@@ -71,8 +71,8 @@ export const RegisterBox = React.createClass({
 
           <div className="social-auth-links text-center">
             <p>- OR -</p>
-            <a href="#" className="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
-            <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
+            <a href="#" className="btn btn-block btn-social btn-facebook btn-flat"><i className="fa fa-facebook"></i> Sign up using Facebook</a>
+            <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i className="fa fa-google-plus"></i> Sign up using Google+</a>
           </div>
 
           <a href="/login" className="text-center">I already have a membership</a>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { handleLogin } from '../../modules/login';
+import { handleLogin } from '../../../modules/login';
 
 export const LoginBox = React.createClass({
   componentDidMount() {
@@ -48,7 +48,7 @@ export const LoginBox = React.createClass({
             <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i className="fa fa-google-plus"></i> Sign in using Google+</a>
           </div>
 
-          <a href="#">I forgot my password</a><br></br>
+          <a href="/recover-password">I forgot my password</a><br></br>
           <a href="/register" className="text-center">Register a new membership</a>
         </div>
       </div>

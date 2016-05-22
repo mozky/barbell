@@ -2,13 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
-import { App } from '../../ui/layouts/app';
+
 import { Documents } from '../../ui/pages/documents';
 import { Index } from '../../ui/pages/index';
 import { NotFound } from '../../ui/pages/not-found';
-import { RecoverPassword } from '../../ui/pages/recover-password';
-import { ResetPassword } from '../../ui/pages/reset-password';
-import { Signup } from '../../ui/pages/signup';
 import { Test } from '../../ui/pages/test';
 
 import { DashboardContainer } from '../../ui2/containers/dashboard-container';
@@ -17,8 +14,10 @@ import { Index as NewIndex } from '../../ui2/pages/index';
 import { Test as NewTest } from '../../ui2/pages/test';
 import { UserPage } from '../../ui2/pages/user-page';
 import { Records } from '../../ui2/pages/records';
-import { LoginBox } from '../../ui2/components/login';
-import { RegisterBox } from '../../ui2/components/register';
+import { LoginBox } from '../../ui2/components/account/login';
+import { RegisterBox } from '../../ui2/components/account/register';
+import { RecoverPasswordBox } from '../../ui2/components/account/recover-password';
+import { ResetPasswordBox } from '../../ui2/components/account/reset-password';
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -44,8 +43,8 @@ Meteor.startup(() => {
       <Route component={ SignedOut }>
         <Route name="login" path="/login" component={ LoginBox } />
         <Route name="register" path="/register" component={ RegisterBox } />
-        <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
-        <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
+        <Route name="recover-password" path="/recover-password" component={ RecoverPasswordBox } />
+        <Route name="reset-password" path="/reset-password/:token" component={ ResetPasswordBox } />
       </Route>
       <Route path="*" component={ NotFound } />
     </Router>,
