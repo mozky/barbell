@@ -45,7 +45,7 @@ export const LoginBox = React.createClass({
           <div className="social-auth-links text-center">
             <p>- OR -</p>
             <a href="#" className="btn btn-block btn-social btn-facebook btn-flat"><i className="fa fa-facebook"></i> Sign in using Facebook</a>
-            <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i className="fa fa-google-plus"></i> Sign in using Google+</a>
+            <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i className="fa fa-instagram"></i> Sign in using Instagram</a>
           </div>
 
           <Link to="/recover-password">I forgot my password</Link>

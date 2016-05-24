@@ -73,7 +73,7 @@ export const RegisterBox = React.createClass({
           <div className="social-auth-links text-center">
             <p>- OR -</p>
             <a href="#" className="btn btn-block btn-social btn-facebook btn-flat"><i className="fa fa-facebook"></i> Sign up using Facebook</a>
-            <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i className="fa fa-google-plus"></i> Sign up using Google+</a>
+            <a href="#" className="btn btn-block btn-social btn-instagram btn-flat"><i className="fa fa-google-plus"></i> Sign up using Instagram</a>
           </div>
 
           <Link to="/login">I already have a membership</Link>
