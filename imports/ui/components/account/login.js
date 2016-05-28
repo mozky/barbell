@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { handleLogin } from '../../../modules/login';
+import { Meteor } from 'meteor/meteor';
 
 export const LoginBox = React.createClass({
   componentDidMount() {
@@ -9,6 +10,16 @@ export const LoginBox = React.createClass({
 
   handleSubmit(event) {
     event.preventDefault();
+  },
+
+  loginFacebook() {
+    const services = Accounts.loginServicesConfigured();
+    console.log(services);
+    Meteor.loginWithFacebook({}, function(err){
+      if (err) {
+        throw new Meteor.Error('Facebook login failed');
+      }
+    });
   },
 
   render() {
@@ -44,7 +55,8 @@ export const LoginBox = React.createClass({
 
           <div className="social-auth-links text-center">
             <p>- OR -</p>
-            <a href="#" className="btn btn-block btn-social btn-facebook btn-flat"><i className="fa fa-facebook"></i> Sign in using Facebook</a>
+            {/* <a href="#" className="btn btn-block btn-social btn-facebook btn-flat"><i className="fa fa-facebook"></i> Sign in using Facebook</a> */}
+            <button className="btn btn-block btn-social btn-facebook btn-flat" onClick={ this.loginFacebook }><i className="fa fa-facebook"></i> Sign in using Facebook</button>
             <a href="#" className="btn btn-block btn-social btn-google btn-flat"><i className="fa fa-instagram"></i> Sign in using Instagram</a>
           </div>
 

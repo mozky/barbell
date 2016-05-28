@@ -33,3 +33,5 @@ xolvio:backdoor
 mdg:validated-method
 dburles:factory
 react-meteor-data
+service-configuration
+accounts-facebook
